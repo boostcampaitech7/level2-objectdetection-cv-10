@@ -11,12 +11,14 @@ def parse_args():
     parser.add_argument('-f', '--files', nargs='+', required=True)
     parser.add_argument('--work-dir', default='none')
     parser.add_argument('--output-file', default='none')
+    parser.add_argument('--iou', default=0.5)
+    parser.add_argument('--skip', default=0.05)
 
     args = parser.parse_args()
 
     return args
 
-def apply_wbf_to_image(image_predictions, iou_thr=0.6, skip_box_thr=0.05):
+def apply_wbf_to_image(image_predictions, iou_thr=0.5, skip_box_thr=0.05):
     boxes_list = image_predictions['boxes']
     scores_list = image_predictions['scores']
     labels_list = image_predictions['labels']
@@ -57,6 +59,8 @@ def main():
     for _, row in merged_df.iterrows():
         image_id = row['image_id']
         prediction_string = row['PredictionString']
+        if type(prediction_string) == float:
+            continue
         predictions = prediction_string.split()
 
         boxes, scores, labels = [], [], []
@@ -84,7 +88,7 @@ def main():
         wbf_results = []
 
     for image_id, predictions in predictions_by_image.items():
-        boxes, scores, labels = apply_wbf_to_image(predictions)
+        boxes, scores, labels = apply_wbf_to_image(predictions, iou_thr=float(args.iou), skip_box_thr=float(args.skip))
 
         # WBF 결과를 PredictionString 형식으로 변환
         prediction_string = ' '.join([
@@ -98,7 +102,7 @@ def main():
     wbf_df = pd.DataFrame(wbf_results)
 
     try:
-        wbf_df.to_csv(f'{work_dir}/{output_file_name}', index=None)
+        wbf_df.to_csv(f'{work_dir}/{output_file_name}.csv', index=None)
         print(f'save {output_file_name} at {work_dir}/')
     except Exception as e:
         print('Error. Please Check args')
