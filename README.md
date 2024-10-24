@@ -12,13 +12,15 @@
 2. **Run the Script**  
    Execute the script with the following command:
    ```bash
-   python wbf_script.py -f <file1.csv> <file2.csv> ... --work-dir <output directory> --output-file <output filename>
+   python wbf_script.py -f <file1.csv> <file2.csv> ... --work-dir <output directory> --output-file <output filename> --iou <iou> --skip <skip_box_thr>
    ```
 
 3. **Argument Description**  
    - `-f, --files`: List of CSV files containing prediction results (multiple files allowed)  
    - `--work-dir`: Directory to save the output file (default: current directory)  
    - `--output-file`: Name of the output file (default: `output.csv`)
+   - `--iou`: iou for boxes to be match (default: `0.5`)
+   - `--skip`: skip boxes with confidence lower than skip (default: `0.05`)
 
 4. **Example Command**
    ```bash
