@@ -77,10 +77,10 @@ This project focuses on detecting objects in recycling trash images as part of a
 - Resnet
 
 ## **📰Experiments**
+![image](https://github.com/user-attachments/assets/aa7fe374-df98-4a97-b3e8-d80ae2e57b71)
 
-![image.png](image.png)
+![train_batch9921_41_46441c1a381ad986227e](https://github.com/user-attachments/assets/e2535cce-6b17-4713-a822-7f906d6e0a18)
 
-![image.png](image%201.png)
 
 | Exp | mAP |
 | --- | --- |
