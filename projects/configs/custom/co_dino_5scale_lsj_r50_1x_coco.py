@@ -1,6 +1,6 @@
 # ResNet50 backbone Co-DETR 파일 로드(lsj(x))_고정
 _base_ = [
-    '/data/ephemeral/home/cw/Co-DETR/projects/configs/custom/co_dino_5scale_r50_1x_coco.py'
+    '/data/ephemeral/home/Co-DETR/projects/configs/custom/co_dino_5scale_r50_1x_coco.py'
 ]
 
 # 모델 설정

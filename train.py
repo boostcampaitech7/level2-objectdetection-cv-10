@@ -18,7 +18,7 @@ classes = ("General trash", "Paper", "Paper pack", "Metal", "Glass",
            "Plastic", "Styrofoam", "Plastic bag", "Battery", "Clothing")
 
 # config 파일 로드
-cfg = Config.fromfile('/data/ephemeral/home/cw/Co-DETR/projects/configs/custom/co_dino_5scale_lsj_swin_large_2x_coco.py')
+cfg = Config.fromfile('/data/ephemeral/home/Co-DETR/projects/configs/custom/co_dino_5scale_lsj_swin_large_2x_coco.py')
 
 # dataset 경로
 root = '/data/ephemeral/home/dataset/'
@@ -64,8 +64,8 @@ cfg.data.test = dict(
     pipeline=cfg.test_pipeline
 )
 
-cfg.data.samples_per_gpu = 3
-cfg.data.workers_per_gpu = 8
+cfg.data.samples_per_gpu = 2
+cfg.data.workers_per_gpu = 4
 cfg.data.pin_memory = True
 cfg.seed = 42
 cfg.gpu_ids = [0]
@@ -74,13 +74,13 @@ cfg.device = get_device()
 cfg.work_dir = f'./work_dirs/co_dino_5scale_lsj_swin_large_2x_trash_fold{fold}' 
 cfg.model.query_head.num_classes = 10  #출력 클래스 수
 
-# 학습률 스케줄러 설정
 cfg.lr_config = dict(
     policy='CosineAnnealing',
     warmup='linear',
-    warmup_iters=1000,
-    warmup_ratio=1.0 / 10,
+    warmup_iters=500,
+    warmup_ratio=1.0 / 3,
     min_lr_ratio=1e-5)
+
 cfg.optimizer_config = dict(grad_clip=dict(max_norm=5.0, norm_type=2))
 
 cfg.auto_scale_lr = dict(base_batch_size=16)
@@ -112,7 +112,7 @@ cfg.log_config = dict(
     ]
 )
 
-# 데이터셋, 모델 생성
+# 데이터셋 with sampler, 모델 생성
 datasets = [build_dataset(cfg.data.train)]
 model = build_detector(cfg.model, train_cfg=cfg.get('train_cfg'), test_cfg=cfg.get('test_cfg'))
 model.init_weights()

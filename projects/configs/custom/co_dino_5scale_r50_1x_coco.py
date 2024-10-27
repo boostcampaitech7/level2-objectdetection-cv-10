@@ -20,14 +20,17 @@ model = dict(
         norm_eval=True,
         style='pytorch',
         init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
+    # neck 구조 변경
     neck=dict(
-        type='ChannelMapper',
+        type='PAFPN', # ChannelMapper -> PAFPN
         in_channels=[256, 512, 1024, 2048],
-        kernel_size=1,
         out_channels=256,
-        act_cfg=None,
-        norm_cfg=dict(type='GN', num_groups=32),
-        num_outs=5),
+        num_outs=5,
+        start_level=1,
+        add_extra_convs='on_output',
+        relu_before_extra_convs=True,
+        no_norm_on_lateral=True,
+        norm_cfg=dict(type='BN', requires_grad=True)),
     rpn_head=dict(
         type='RPNHead',
         in_channels=256,

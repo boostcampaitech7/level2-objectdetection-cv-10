@@ -68,7 +68,7 @@ def ensemble_predictions(predictions_list, iou_threshold=0.5, conf_threshold=0.0
 def main():
     classes = ("General trash", "Paper", "Paper pack", "Metal", "Glass", 
                "Plastic", "Styrofoam", "Plastic bag", "Battery", "Clothing")
-    cfg = Config.fromfile('/data/ephemeral/home/cw/Co-DETR/projects/configs/custom/co_dino_5scale_lsj_swin_large_1x_coco.py')
+    cfg = Config.fromfile('/data/ephemeral/home/Co-DETR/projects/configs/custom/co_dino_5scale_lsj_swin_large_2x_coco.py')
     root = '/data/ephemeral/home/dataset/'
 
     if 'query_head' in cfg.model:
@@ -94,7 +94,7 @@ def main():
     for fold in range(2):  # 2 fold
         cfg.model.query_head.num_classes = 10
         model = build_detector(cfg.model, test_cfg=cfg.get('test_cfg'))
-        checkpoint_path = f'./work_dirs/co_dino_5scale_lsj_swin_large_1x_trash_fold{fold}/latest.pth'
+        checkpoint_path = f'./work_dirs/co_dino_5scale_lsj_swin_large_2x_trash_fold{fold}/latest.pth'
         load_checkpoint(model, checkpoint_path, map_location='cpu')
         model = MMDataParallel(model, device_ids=[0])
         model.eval()
@@ -109,7 +109,7 @@ def main():
         dist=False,
         shuffle=False)
     
-    # 추론 및 WBF 실행
+    # WBF한 추론 실행
     prediction_strings = []
     file_names = []
     

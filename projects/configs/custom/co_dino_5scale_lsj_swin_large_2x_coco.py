@@ -1,6 +1,6 @@
 # co_dino_5scale_lsj_swin_large_1x_coco.py의 스케쥴x2, 12 -> 24로 확장
 _base_ = [
-    '/data/ephemeral/home/cw/Co-DETR/projects/configs/custom/co_dino_5scale_lsj_swin_large_1x_coco.py'
+    '/data/ephemeral/home/Co-DETR/projects/configs/custom/co_dino_5scale_lsj_swin_large_1x_coco.py'
 ]
 # 모델 설정
 model = dict(
