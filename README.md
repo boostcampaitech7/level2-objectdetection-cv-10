@@ -89,18 +89,4 @@ This project focuses on detecting objects in recycling trash images as part of a
 | Co-dino_swin(5),Co-dino_r50(2),RT-DETR(5) | 0.6797 |
 | Co_dino_swin(5), RT-DETR(5), Yolov11(5) | 0.6834 |
 
-### Training Step
 
-To train a single model, run following command.
-
-```bash
-python train.py 
-```
-
-### Inference Step
-
-To test model, run following command.
-
-```bash
-python inference.py 
-```
