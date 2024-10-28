@@ -34,23 +34,27 @@ This project focuses on detecting objects in recycling trash images as part of a
 
 ```
 ├── baseline
-│   ├── detectron2
-│   │   ├── faster_rcnn_train.ipynb
-│   │   ├── faster_rcnn_inference.ipynb
+│   ├── mmdetection2
+│   │   ├── configs
+│   │   ├── inference_wbf.py
+│   │   ├── train.py
 │   │   └── etc
-│   ├── faster_rcnn
-│   │   ├── faster_rcnn_torchvision_train.ipynb
-│   │   └── faster_rcnn_torchvision_inference.ipynb
-│   ├── mmdetection
-│   │   ├── faster_rcnn_train.ipynb
-│   │   ├── faster_rcnn_inference.ipynb
-│   │   └── etc
-│   └── requirements.txt
+│   ├── mmdetection3
+│   │   └── config files
+│   ├── Ultralytics
+│   │   ├── RT_DETR.ipynb
+│   │   ├── RT_DETR_WBF_infernece.ipynb
+│   │   ├── Yolov11.ipynb
+│   │   └── Yolov11_WBF_infernece.ipynb
 ├── dataset
 │   ├── test
 │   ├── test.json
 │   ├── train
 │   └── train.json
+├── data_split.py
+├── eda.ipynb
+├── visualization_data.ipynb
+├── wbf.py
 └── sample_submission
     ├── faster_rcnn_mmdetection_submission.csv
     ├── faster_rcnn_torchvision_submission.csv
