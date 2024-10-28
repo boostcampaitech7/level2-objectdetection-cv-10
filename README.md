@@ -33,28 +33,36 @@ This project focuses on detecting objects in recycling trash images as part of a
 ## **📰**Folder Structure
 
 ```
-├── baseline
-│   ├── mmdetection2
-│   │   ├── configs
-│   │   ├── inference_wbf.py
-│   │   ├── train.py
-│   │   └── etc
-│   ├── mmdetection3
-│   │   └── config files
-│   ├── Ultralytics
-│   │   ├── RT_DETR.ipynb
-│   │   ├── RT_DETR_WBF_infernece.ipynb
-│   │   ├── Yolov11.ipynb
-│   │   └── Yolov11_WBF_infernece.ipynb
-├── dataset
-│   ├── test
-│   ├── test.json
-│   ├── train
-│   └── train.json
+
+├── mmdetection2
+│   ├── configs
+│   ├──projects/configs/custom
+│   ├── inference_wbf.py
+│   ├── train.py
+│   └── etc
+├── mmdetection3
+│   └── config files
+├── Ultralytics
+│   ├── RT_DETR.ipynb
+│   ├── RT_DETR_WBF_infernece.ipynb
+│   ├── Yolov11.ipynb
+│   └── Yolov11_WBF_infernece.ipynb
 ├── data_split.py
 ├── eda.ipynb
 ├── visualization_data.ipynb
 └── wbf.py
+
+```
+
+## **📰**Dataset Structure
+
+```
+
+├── dataset
+│   ├── train.json
+│   ├── test.json
+│   ├── train
+│   └── test
 
 ```
 
