@@ -59,10 +59,10 @@ This project focuses on detecting objects in recycling trash images as part of a
 ```
 
 ├── dataset
-│   ├── train.json
-│   ├── test.json
-│   ├── train
-│   └── test
+    ├── train.json
+    ├── test.json
+    ├── train
+    └── test
 
 ```
 
