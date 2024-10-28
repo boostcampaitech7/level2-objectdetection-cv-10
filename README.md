@@ -54,12 +54,8 @@ This project focuses on detecting objects in recycling trash images as part of a
 ├── data_split.py
 ├── eda.ipynb
 ├── visualization_data.ipynb
-├── wbf.py
-└── sample_submission
-    ├── faster_rcnn_mmdetection_submission.csv
-    ├── faster_rcnn_torchvision_submission.csv
-    ├── submission_ensemble.csv
-    └── train_sample.csv
+└── wbf.py
+
 ```
 
 - images : 9754
